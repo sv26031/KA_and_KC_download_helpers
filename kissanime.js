@@ -5,10 +5,6 @@ var episodeLinks = $('table.listing a').map(function(i,el) { return $(el).attr('
 $.ajaxSetup({async:false});
 $.getScript("http://kissanime.com/Scripts/asp.js");
 
-var login = "vergo777";
-var api_key = "R_6a13f014b38f4f80a31cf7d80a7c18c7";
-var long_url; 
-
 var startEpisode; 
 do {
 	startEpisode = prompt("Enter episode number you want to start from");
@@ -23,14 +19,20 @@ var endEpisode;
 do {
 	endEpisode = prompt("Enter episode number you want to end at");
 	if(endEpisode <= 0 || endEpisode > episodeLinks.length || endEpisode < startEpisode) {
-		alert("Episode number entered must be greater than 0 and lesser than total number of eps");
+		alert("Episode number entered must be greater than 0 and less than total number of eps");
 	} else {
 		break;
 	}
 } while(true); 
-var videoQuality = prompt("Enter video quality you want to download. Example - '960x720.mp4' (without the quotes)"); 
 
-var i; 
+var videoQuality = prompt("Enter video quality you want to download. Leave blank for default (1280x720.mp4)"); 
+//set preferred quality (will choose the best available if not an option)
+if(videoQuality === null) {
+	videoQuality = '1280x720.mp4';
+}
+
+var i;
+var long_url;
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
 	jQuery.ajax({
          url:    URL + episodeLinks[i], 
@@ -49,31 +51,14 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 					for(j = 0; j < downloadQualityOptions.length; j++) {
 						if(videoQuality === downloadQualityOptions[j].html()) {
 							long_url = downloadQualityOptions[j].attr('href');
-							console.log(i);
-							console.log(long_url);
+						} else if (j === 0) {
+							long_url = downloadQualityOptions[0].html();
 						}
+						console.log(i);
+						console.log(long_url);
 					}
                   },
          async:   false, 
 		 script:  true
     });       
-}
-
-
-function get_short_url(long_url, login, api_key)
-{
-    $.getJSON(
-        "http://api.bitly.com/v3/shorten?callback=?", 
-        { 
-            "format": "json",
-            "apiKey": api_key,
-            "login": login,
-            "longUrl": long_url, 
-			async: true
-        },
-        function(response)
-        {
-            console.log(response.data.url);
-        }
-    ); 
 }
