@@ -1,5 +1,13 @@
 var URL = window.location.origin
 
+//temporary way to determine if at least user is on KissAnime.
+//Need to replace with reg expression to check for specific page type
+if(window.location.href.indexOf("kissanime.com/Anime/") = -1) {
+       alert("You are not currently on KissAnime");
+       //fake function to cause script to terminate
+       AbortJavaScript();
+}
+
 var episodeLinks = $('table.listing a').map(function(i,el) { return $(el).attr('href'); });
 
 $.ajaxSetup({async:false});
