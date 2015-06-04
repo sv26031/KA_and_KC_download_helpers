@@ -2,7 +2,7 @@ var URL = window.location.origin
 
 //temporary way to determine if at least user is on KissAnime.
 //Need to replace with reg expression to check for specific page type
-if(window.location.href.indexOf("kissanime.com/Anime/") = -1) {
+if (window.location.href.indexOf("kissanime.com/Anime/") == -1) {
        alert("You are not currently on KissAnime");
        //fake function to cause script to terminate
        AbortJavaScript();
@@ -75,7 +75,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
     });
 }
 
-var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once.'
+var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once. '
 newPageText += 'To download them individually, right click the link and choose Save As. <br></br>'
 newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br></br>'
 newPageText += newLinks
