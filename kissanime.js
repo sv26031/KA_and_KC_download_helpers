@@ -1,15 +1,23 @@
 var URL = window.location.origin
 
-//temporary way to determine if at least user is on KissAnime.
-//Need to replace with reg expression to check for specific page type
-if (window.location.href.indexOf("kissanime.com/Anime/") == -1) {
-       alert("You are not currently on KissAnime");
-       //fake function to cause script to terminate
-       AbortJavaScript();
+// determine if user is on KissAnime and on the anime's main episode page
+if (window.location.href.indexOf("kissanime.com/") == -1) {
+	alert("You are not currently on KissAnime.");
+	//fake function to cause script to terminate
+	AbortJavaScript();
+} else if (window.location.href.indexOf("kissanime.com/Anime/") == -1) {
+	alert("You are not on the Anime's main episode page.");
+	//fake function to cause script to terminate
+	AbortJavaScript();
 }
 
 var episodeLinks = $('table.listing a').map(function(i,el) { return $(el).attr('href'); });
 console.log('Found ' + episodeLinks.length + ' episode links on current page.')
+if (episodeLinks === 0 || episodeLinks === null) {
+	alert("There are no episode links on this page.")
+	//fake function to cause script to terminate
+	AbortJavaScript();
+}
 
 $.ajaxSetup({async:false});
 $.getScript("http://kissanime.com/Scripts/asp.js");
@@ -17,6 +25,9 @@ $.getScript("http://kissanime.com/Scripts/asp.js");
 var startEpisode; 
 do {
 	startEpisode = prompt("Enter episode number you want to start from:");
+	if (startEpisode === null) {
+		throw new Error("Script cancelled by user!");
+	}
 	startEpisode = Number(startEpisode);
 	if (startEpisode <= 0 || startEpisode > episodeLinks.length) {
 		alert("Episode number must be greater than 0 and less than " + episodeLinks.length); 
@@ -29,6 +40,9 @@ console.log('Starting episode: ' + startEpisode)
 var endEpisode; 
 do {
 	endEpisode = prompt("Enter episode number you want to end at:");
+	if (endEpisode === null) {
+		throw new Error("Script cancelled by user!");
+	}
 	endEpisode = Number(endEpisode);
 	if (endEpisode <= 0 || endEpisode > episodeLinks.length || endEpisode < startEpisode) {
 		alert("Episode number must be greater than 0 and less than " + episodeLinks.length);
