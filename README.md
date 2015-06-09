@@ -11,13 +11,12 @@ Note: An alternative use is to watch the episodes from the new page without ads 
 USAGE
 ======================
 
-1. Create a bookmarklet. Name it something you'll remember (KissAnime-DLC) and use the following as the 'Location:'
-
 ```
 javascript:(function(){var%20script=window.document.createElement("script");script.src="https://rawgit.com/Amraki/KissAnime-DLC/master/kissanime.js";document.body.appendChild(script);window.document.getElementsByTagName("head")[0].appendChild(script);})();
 ```
+1. Create a bookmarklet. Name it something you'll remember (KissAnime-DLC) and paste the above javascript in the 'Location' field.
 
-2. Make sure you're logged into KissAnime. Make a free account if needed.
+2. Make sure you're logged into KissAnime. Make a free account if necessary.
 
 3. Go to the main episode page of the anime you want to download.
 
@@ -31,4 +30,4 @@ javascript:(function(){var%20script=window.document.createElement("script");scri
 
 8. Wait. A new window/tab will open when the selected episode's download links have been collected.
 
-9. Either right click each link on the page and choose Save Link As or use an addon to download them all with one click. 
+9. Either right click each link on the page and choose 'Save Link As' or use an addon to download them all with one click. 
