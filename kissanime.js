@@ -54,7 +54,7 @@ console.log('Ending episode: ' + endEpisode)
 
 var videoQuality = prompt("Enter video quality you want to download. Leave blank for default (1280x720.mp4)"); 
 //set preferred quality (will choose the best available if not an option)
-if (videoQuality === null) {
+if (videoQuality === null || videoQuality == '') {
 	videoQuality = '1280x720.mp4';
 }
 
@@ -77,13 +77,17 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			
 			var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
 			var j; 
+			var qualityFound = false;
 			for (j = 0; j < downloadQualityOptions.length; j++) {
 				if (videoQuality === downloadQualityOptions[j].html()) {
 					long_url = downloadQualityOptions[j].attr('href');
-				} else if (j === 0) {
-					videoQuality = downloadQualityOptions[0].html();
-					long_url = downloadQualityOptions[0].attr('href');
-				}
+					qualityFound = true;
+				} 
+			}
+			//if preferred quality is not found, defaults to highest quality
+			if (qualityFound == false){
+				videoQuality = downloadQualityOptions[0].html();
+				long_url = downloadQualityOptions[0].attr('href');
 			}
 			console.log(c);
 			newLinks = newLinks + '<a href="' + long_url + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
