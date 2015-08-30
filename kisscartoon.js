@@ -6,7 +6,7 @@ if (window.location.href.indexOf("kisscartoon.me/") == -1) {
 	//fake function to cause script to terminate
 	AbortJavaScript();
 } else if (window.location.href.indexOf("kisscartoon.me/Cartoon/") == -1) {
-	alert("You are not on the Anime's main episode page.");
+	alert("You are not on the Cartoon's main episode page.");
 	//fake function to cause script to terminate
 	AbortJavaScript();
 }
