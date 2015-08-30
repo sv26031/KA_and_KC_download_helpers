@@ -2,7 +2,7 @@ var URL = window.location.origin
 
 // determine if user is on KissAnime and on the anime's main episode page
 if (window.location.href.indexOf("kisscartoon.me/") == -1) {
-	alert("You are not currently on KissAnime.");
+	alert("You are not currently on KissCartoon.");
 	//fake function to cause script to terminate
 	AbortJavaScript();
 } else if (window.location.href.indexOf("kisscartoon.me/Cartoon/") == -1) {
