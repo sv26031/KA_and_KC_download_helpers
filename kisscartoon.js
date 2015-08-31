@@ -52,6 +52,25 @@ do {
 } while(true); 
 console.log('Ending episode: ' + endEpisode)
 
+var offset; 
+do {
+	offset = prompt("Enter the number of episodes below episode 1:");
+	if (offset === null) {
+		throw new Error("Script cancelled by user!");
+	}
+	offset = Number(offset);
+	if (offset <= 0 || offset > episodeLinks.length) {
+		alert("Offset number must be greater than 0 and less than " + episodeLinks.length); 
+	} else if ((startEpisode+offset) <= 0 || (startEpisode+offset) > episodeLinks.length) {
+		alert("No episode to start at"; 
+	} else if ((endEpisode+offset) <= 0 || (endEpisode+offset) > episodeLinks.length) {
+		alert("No episode to end at"; 
+	}
+		break; 
+	}
+} while(true); 
+console.log('Offset by: ' + startEpisode)
+
 var videoQuality = prompt("Enter video quality you want to download. Leave blank for default (1280x720.mp4)"); 
 //set preferred quality (will choose the best available if not an option)
 if (videoQuality === null || videoQuality == '') {
@@ -62,7 +81,7 @@ var i;
 var long_url;
 var newLinks = '';
 var c = startEpisode;
-for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
+for (i = (episodeLinks.length - (startEpisode+offset)); i >= (episodeLinks.length - (endEpisode+offset)); i--) {
 	jQuery.ajax({
         url:    URL + episodeLinks[i], 
         success: function(result) {
