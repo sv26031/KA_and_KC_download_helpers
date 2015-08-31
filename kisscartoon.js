@@ -62,9 +62,9 @@ do {
 	if (offset <= 0 || offset > episodeLinks.length) {
 		alert("Offset number must be greater than 0 and less than " + episodeLinks.length); 
 	} else if ((startEpisode+offset) <= 0 || (startEpisode+offset) > episodeLinks.length) {
-		alert("No episode to start at"; 
+		alert("No episode to start at"); 
 	} else if ((endEpisode+offset) <= 0 || (endEpisode+offset) > episodeLinks.length) {
-		alert("No episode to end at"; 
+		alert("No episode to end at"); 
 	}
 		break; 
 	}
