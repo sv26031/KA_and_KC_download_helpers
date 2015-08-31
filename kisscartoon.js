@@ -61,7 +61,7 @@ if (videoQuality === null || videoQuality == '') {
 var i;
 var long_url;
 var newLinks = '';
-var newLinks2 = '';ne
+var newLinks2 = '';
 var c = startEpisode;
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
 	jQuery.ajax({
