@@ -65,7 +65,7 @@ do {
 		alert("No episode to start at"); 
 	} else if ((endEpisode+offset) <= 0 || (endEpisode+offset) > episodeLinks.length) {
 		alert("No episode to end at"); 
-	}
+	} else {
 		break; 
 	}
 } while(true); 
