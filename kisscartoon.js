@@ -78,6 +78,7 @@ if (videoQuality === null || videoQuality == '') {
 var i;
 var long_url;
 var newLinks = '';
+var newLinks2 = '';
 var c = startEpisode;
 for (i = (episodeLinks.length - (startEpisode+offset)); i >= (episodeLinks.length - (endEpisode+offset)); i--) {
 	jQuery.ajax({
@@ -108,6 +109,7 @@ for (i = (episodeLinks.length - (startEpisode+offset)); i >= (episodeLinks.lengt
 			}
 			console.log(c);
 			newLinks = newLinks + '<a href="' + long_url + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
+			newLinks2 = newLinks2 + long_url + '<br></br>\n';
 			c++
         },
         async:   false, 
@@ -119,6 +121,7 @@ var newPageText = 'Use an addon like DownThemAll! to download the episodes on th
 newPageText += 'To download them individually, right click the link and choose Save As. <br></br>'
 newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br></br>'
 newPageText += newLinks
+newPageText += '\n\n\n' + newLinks2
 
 var newPage = window.open();
 newPage.document.body.innerHTML = newPageText
