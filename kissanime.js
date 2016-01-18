@@ -74,7 +74,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			var stringStart = result.search("var wra"); 
 			var stringEnd = result.search("document.write"); 
 			var javascriptToExecute = result.substring(stringStart, stringEnd);
-			ajx = javascriptToExecute;
+			ajx = result.substring(stringStart, stringEnd);
 			eval(javascriptToExecute);
 			
 			$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
@@ -106,6 +106,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once. '
 newPageText += 'To download them individually, right click the link and choose Save As. <br></br>'
 newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br></br>'
+newPageText += ajx
 newPageText += newLinks
 
 var newPage = window.open();
