@@ -1,5 +1,6 @@
 var URL = window.location.origin
 console.log(URL);
+console.log(window.location.href);
 
 // determine if user is on KissAnime and on the anime's main episode page
 if (window.location.href.indexOf("kissanime.to/") == -1) {
