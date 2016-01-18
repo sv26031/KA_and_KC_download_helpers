@@ -2,11 +2,11 @@ var URL = window.location.origin
 console.log(URL);
 
 // determine if user is on KissAnime and on the anime's main episode page
-if (window.location.href.indexOf("kissanime.com/") == -1) {
+if (window.location.href.indexOf("kissanime.to/") == -1) {
 	alert("You are not currently on KissAnime.");
 	//fake function to cause script to terminate
 	AbortJavaScript();
-} else if (window.location.href.indexOf("kissanime.com/Anime/") == -1) {
+} else if (window.location.href.indexOf("kissanime.to/Anime/") == -1) {
 	alert("You are not on the Anime's main episode page.");
 	//fake function to cause script to terminate
 	AbortJavaScript();
