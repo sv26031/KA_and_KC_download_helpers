@@ -74,6 +74,8 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			var stringStart = result.search("var wra"); 
 			var stringEnd = result.search("document.write"); 
 			var javascriptToExecute = result.substring(stringStart, stringEnd);
+			console.log(result);
+			console.log("start and end at " + stringStart + ", " + stringEnd);
 			console.log(javascriptToExecute);
 			eval(javascriptToExecute);
 			
