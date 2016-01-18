@@ -22,7 +22,7 @@ if (episodeLinks === 0 || episodeLinks === null) {
 }
 
 $.ajaxSetup({async:false});
-$.getScript("http://kissanime.com/Scripts/asp.js");
+$.getScript("https://kissanime.com/Scripts/asp.js");
 
 var startEpisode; 
 do {
