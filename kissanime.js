@@ -74,7 +74,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			var stringStart = result.search("var wra"); 
 			var stringEnd = result.search("document.write"); 
 			var javascriptToExecute = result.substring(stringStart, stringEnd);
-			ajx += result.substring(stringStart, stringEnd);
+			console.log(javascriptToExecute);
 			eval(javascriptToExecute);
 			
 			$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
