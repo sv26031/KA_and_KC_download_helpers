@@ -106,7 +106,6 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once. '
 newPageText += 'To download them individually, right click the link and choose Save As. <br></br>'
 newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br></br>'
-newPageText += ajx
 newPageText += newLinks
 
 var newPage = window.open();
