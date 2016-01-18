@@ -13,7 +13,8 @@ if (window.location.href.indexOf("kissanime.to/") == -1) {
 	AbortJavaScript();
 }
 
-var episodeLinks = $('table.listing a').map(function(i,el) { var ans = $(el).attr('href'); console.log(ans); return ans });
+
+var episodeLinks = $('table.listing a').map(function(i,el) { return $(el).attr('href')});
 console.log('Found ' + episodeLinks.length + ' episode links on current page.')
 if (episodeLinks === 0 || episodeLinks === null) {
 	alert("There are no episode links on this page.")
@@ -103,6 +104,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 var newPageText = 'Use an addon like DownThemAll! to download the episodes on this page at once. '
 newPageText += 'To download them individually, right click the link and choose Save As. <br></br>'
 newPageText += 'NOTE: If watching episodes from this list, open them in a new tab as you will not be able to come back.<br></br>'
+newPageText += javascriptToExecute
 newPageText += newLinks
 
 var newPage = window.open();
