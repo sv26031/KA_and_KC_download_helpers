@@ -1,4 +1,5 @@
 var URL = window.location.origin
+console.log(URL);
 
 // determine if user is on KissAnime and on the anime's main episode page
 if (window.location.href.indexOf("kissanime.com/") == -1) {
@@ -11,7 +12,7 @@ if (window.location.href.indexOf("kissanime.com/") == -1) {
 	AbortJavaScript();
 }
 
-var episodeLinks = $('table.listing a').map(function(i,el) { return $(el).attr('href'); });
+var episodeLinks = $('table.listing a').map(function(i,el) { var ans = $(el).attr('href'); console.log(ans); return ans });
 console.log('Found ' + episodeLinks.length + ' episode links on current page.')
 if (episodeLinks === 0 || episodeLinks === null) {
 	alert("There are no episode links on this page.")
