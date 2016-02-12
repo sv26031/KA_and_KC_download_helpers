@@ -69,7 +69,7 @@ var ajx = '';
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
 	jQuery.ajax({
         url:    URL + episodeLinks[i], 
-        success: function(result) {
+        done: function(result) {
             var $result = eval($(result));
 			var stringStart = result.search("var wra"); 
 			var stringEnd = result.search("document.write"); 
