@@ -97,8 +97,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			newLinks = newLinks + '<a href="' + long_url + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 			c++
         },
-        async:   false, 
-		script:  true
+        script:  true
     });
 }
 
