@@ -22,7 +22,7 @@ if (episodeLinks === 0 || episodeLinks === null) {
 	AbortJavaScript();
 }
 
-$.ajaxSetup({async:true});
+$.ajaxSetup({async:false});
 $.getScript("https://kissanime.to/Scripts/asp.js");
 
 var startEpisode; 
@@ -97,7 +97,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			newLinks = newLinks + '<a href="' + long_url + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 			c++
         },
-        async:   true,
+        async:   false,
         script:  true
     });
 }
