@@ -70,14 +70,11 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 	jQuery.ajax({
         url:    URL + episodeLinks[i], 
         success: function(result) {
-            var $result = eval($(result));
-			var stringStart = result.search("var wra"); 
-			var javascriptToExecute = result.substring(stringStart, result.length);
-			var stringEnd = javascriptToExecute.search("document.write"); 
-			var javascriptToExecute = javascriptToExecute.substring(0, result.length);
-			console.log("jsToExec length = " + javascriptToExecute.length)
-			console.log("start at = " + stringStart)
-			eval(javascriptToExecute);
+        	var $result = eval($(result));
+		var stringStart = result.search("divDownload"); 
+		var stringEnd = result.search("document.write"); 
+		var javascriptToExecute = result.substring(stringStart, stringEnd);
+		eval(javascriptToExecute);
 			
 			$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
 			$('#episode' + i).append(wra); 
