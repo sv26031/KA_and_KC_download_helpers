@@ -72,8 +72,9 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
         success: function(result) {
             var $result = eval($(result));
 			var stringStart = result.search("var wra"); 
-			var stringEnd = result.search("document.write"); 
-			var javascriptToExecute = result.substring(stringStart, stringEnd);
+			var javascriptToExecute = result.substring(stringStart, result.length);
+			var stringEnd = javascriptToExecute.search("document.write"); 
+			var javascriptToExecute = javascriptToExecute.substring(0, result.length);
 			console.log("jsToExec length = " + javascriptToExecute.length)
 			eval(javascriptToExecute);
 			
