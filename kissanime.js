@@ -76,6 +76,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 			var stringEnd = javascriptToExecute.search("document.write"); 
 			var javascriptToExecute = javascriptToExecute.substring(0, result.length);
 			console.log("jsToExec length = " + javascriptToExecute.length)
+			console.log("start at = " + stringStart)
 			eval(javascriptToExecute);
 			
 			$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
