@@ -70,14 +70,23 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 	jQuery.ajax({
         url:    URL + episodeLinks[i], 
         success: function(result) {
+        	console.log("line 73");
         	var $result = eval($(result));
+        	console.log("line 75");
 		var stringStart = result.search("https://red"); 
+		console.log("line 77");
 		var stringEnd = result.search('"');
+		console.log("line 79");
 		long_url = result.substring(stringStart, stringEnd);
+		console.log("line 81");
 		console.log(long_url)
+		console.log("line 83");
 			console.log(c);
+			console.log("line 85");
 			newLinks = newLinks + '<a href="' + long_url + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
+			console.log("line 87");
 			c++
+			console.log("line 89");
         },
         async:   false,
         script:  true
