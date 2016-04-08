@@ -70,7 +70,6 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 	console.log("line 70");
 	jQuery.ajax({
         url:    URL + episodeLinks[i], 
-        console.log("line 72");
         success: function(result) {
         	console.log("line 73");
         	var $result = eval($(result));
