@@ -76,9 +76,10 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
         	console.log("line 75");
 		var stringStart = result.search("https://red"); 
 		console.log("line 77");
-		var stringEnd = result.search('"');
+		var url_start = result.substring(stringStart, result.length);
+		var stringEnd = url_start.search('"');
 		console.log("line 79");
-		long_url = result.substring(stringStart, stringEnd);
+		long_url = url_start.substring(0, stringEnd);
 		console.log("line 81");
 		console.log(long_url)
 		console.log("line 83");
