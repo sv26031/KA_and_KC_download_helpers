@@ -85,7 +85,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 		console.log("line 83");
 			console.log(c);
 			console.log("line 85");
-			newLinks = newLinks + '<a href="' + long_url + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
+			newLinks = newLinks + '<a href="' + long_url + '" id = "' + c + '" title = "' + c + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 			console.log("line 87");
 			c++
 			console.log("line 89");
