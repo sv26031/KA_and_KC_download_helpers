@@ -21,8 +21,6 @@ if (episodeLinks === 0 || episodeLinks === null) {
 	//fake function to cause script to terminate
 	AbortJavaScript();
 }
-console.log("episodeLinks[0] = " + episodeLinks[0]);
-console.log("episodeLinks[1] = " + episodeLinks[1]);
 
 $.ajaxSetup({async:false});
 $.getScript("https://kissanime.to/Scripts/asp.js");
@@ -73,29 +71,10 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
         url:    URL + episodeLinks[i], 
         success: function(result) {
         	var $result = eval($(result));
-		var stringStart = result.search("Mobile / Download (Save link as...): "); 
-		var stringEnd = result.search("document.write"); 
-		stringStart = stringStart + "Mobile / Download (Save link as...): ".length
-		var javascriptToExecute = result.substring(stringStart, stringEnd);
-		eval(javascriptToExecute);
-			
-			$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
-			$('#episode' + i).append(wra); 
-			
-			var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
-			var j; 
-			var qualityFound = false;
-			for (j = 0; j < downloadQualityOptions.length; j++) {
-				if (videoQuality === downloadQualityOptions[j].html()) {
-					long_url = downloadQualityOptions[j].attr('href');
-					qualityFound = true;
-				} 
-			}
-			//if preferred quality is not found, defaults to highest quality
-			if (qualityFound == false){
-				videoQuality = downloadQualityOptions[0].html();
-				long_url = downloadQualityOptions[0].attr('href');
-			}
+		var stringStart = result.search("https://red"); 
+		var stringEnd = result.search('"');
+		long_url = result.substring(stringStart, stringEnd);
+		console.log(long_url)
 			console.log(c);
 			newLinks = newLinks + '<a href="' + long_url + '">Episode ' + c + ' (' + videoQuality + ')</a><br></br>\n';
 			c++
