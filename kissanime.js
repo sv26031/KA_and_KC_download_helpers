@@ -21,6 +21,8 @@ if (episodeLinks === 0 || episodeLinks === null) {
 	//fake function to cause script to terminate
 	AbortJavaScript();
 }
+console.log("episodeLinks[0] = " + episodeLinks[0]);
+console.log("episodeLinks[1] = " + episodeLinks[1]);
 
 $.ajaxSetup({async:false});
 $.getScript("https://kissanime.to/Scripts/asp.js");
