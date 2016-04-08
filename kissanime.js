@@ -73,8 +73,9 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
         url:    URL + episodeLinks[i], 
         success: function(result) {
         	var $result = eval($(result));
-		var stringStart = result.search("divDownload"); 
+		var stringStart = result.search("Mobile / Download (Save link as...): "); 
 		var stringEnd = result.search("document.write"); 
+		stringStart = stringStart + "Mobile / Download (Save link as...): ".length
 		var javascriptToExecute = result.substring(stringStart, stringEnd);
 		eval(javascriptToExecute);
 			
